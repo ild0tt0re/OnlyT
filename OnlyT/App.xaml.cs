@@ -37,6 +37,23 @@ namespace OnlyT
     /// </summary>
     public partial class App : Application
     {
+        public void SetTheme(string theme)
+        {
+            ResourceDictionary newTheme = new ResourceDictionary();
+            switch (theme)
+            {
+                case "Dark":
+                    newTheme.Source = new Uri("Themes/DarkMode.xaml", UriKind.Relative);
+                    break;
+                default:
+                    newTheme.Source = new Uri("Themes/LightMode.xaml", UriKind.Relative);
+                    break;
+            }
+
+            // Clear existing resources and add the new theme
+            Resources.MergedDictionaries.Clear();
+            Resources.MergedDictionaries.Add(newTheme);
+        }
         private readonly string _appString = "OnlyTMeetingTimer";
         private Mutex? _appMutex;
         private static readonly Lazy<CommandLineService> CommandLineServiceInstance = new();
@@ -109,7 +126,7 @@ namespace OnlyT
             serviceCollection.AddSingleton<SettingsPageViewModel>();
             serviceCollection.AddSingleton<TimerOutputWindowViewModel>();
             serviceCollection.AddSingleton<CountdownTimerViewModel>();
-            
+
             var serviceProvider = serviceCollection.BuildServiceProvider();
             Ioc.Default.ConfigureServices(serviceProvider);
         }

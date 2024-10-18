@@ -24,6 +24,7 @@
     <Grid>
         <ContentControl Content="{Binding CurrentPage}" />
         <materialDesign:Snackbar MessageQueue="{Binding TheSnackbarMessageQueue}" HorizontalAlignment="Stretch"/>
+        <Button Content="Toggle Dark Mode" Click="ToggleDarkMode_Click"/>
     </Grid>
 
 </Window>

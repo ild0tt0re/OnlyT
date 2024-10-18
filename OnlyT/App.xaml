@@ -9,18 +9,14 @@
     StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <valueConverters:BoolToBackgroundConverter x:Key="ToBackgroundConverter" />
-            <valueConverters:BoolToGradientConverter x:Key="ToBackgroundGradientConverter" />
+            <valueConverters:BoolToBackgroundConverter x:Key="ToBackgroundConverter"/>
+            <valueConverters:BoolToGradientConverter x:Key="ToBackgroundGradientConverter"/>
             <vm:ViewModelLocator
                 xmlns:vm="clr-namespace:OnlyT.ViewModel"
                 x:Key="Locator"
-                d:IsDataSource="True" />
+                d:IsDataSource="True"/>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.BlueGrey.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Amber.xaml" />
+                <ResourceDictionary Source="Themes/LightMode.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -17,6 +17,7 @@ namespace OnlyT.Windows;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private bool isDarkMode = false;
     private const double MainWindowDefaultWidth = 395;
     private const double MainWindowDefaultHeight = 350;
 
@@ -229,6 +230,13 @@ public partial class MainWindow : Window
     {
         SaveWindowPos();
         AdjustMainWindowNormalPositionAndSize();
+    }
+
+    private void ToggleDarkMode_Click(object sender, RoutedEventArgs e)
+    {
+        isDarkMode = !isDarkMode;
+        var app = (App)Application.Current;
+        app.SetTheme(isDarkMode ? "Dark" : "Light");
     }
 
     private IntPtr HandleMessages(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
